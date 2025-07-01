@@ -8,13 +8,7 @@ export const todosSlice = createSlice({
     setTodos(_, { payload }: PayloadAction<Todo[]>) {
       return payload;
     },
-    addTodo(todos, { payload }: PayloadAction<Todo>) {
-      todos.push(payload);
-    },
-    removeTodo(todos, { payload }: PayloadAction<number>) {
-      return todos.filter(todo => todo.id !== payload);
-    },
   },
 });
 
-export const { setTodos, addTodo, removeTodo } = todosSlice.actions;
+export const { setTodos } = todosSlice.actions;

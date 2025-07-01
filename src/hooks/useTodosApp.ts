@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setTodos } from '../features/todos';
-import { RootState } from '../app/store';
 import { getTodos } from '../api';
+import { useAppSelector } from './useAppSelector';
 
 export const useTodosApp = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const dispatch = useDispatch();
-  const selectedTodo = useSelector((state: RootState) => state.currentTodo);
+  const selectedTodo = useAppSelector(state => state.currentTodo);
 
   useEffect(() => {
     getTodos()

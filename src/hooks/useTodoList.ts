@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './../app/store';
+import { useDispatch } from 'react-redux';
 import { prepareTodos } from './../utils/prepareTodos';
+import { useAppSelector } from './useAppSelector';
 
 export const useTodoList = () => {
   const dispatch = useDispatch();
-  const todos = useSelector((state: RootState) => state.todos);
-  const selectedTodo = useSelector((state: RootState) => state.currentTodo);
-  const { query, status } = useSelector((state: RootState) => state.filter);
+  const todos = useAppSelector(state => state.todos);
+  const selectedTodo = useAppSelector(state => state.currentTodo);
+  const { query, status } = useAppSelector(state => state.filter);
 
   const visibleTodos = prepareTodos(todos, {
     searchByTitle: query,

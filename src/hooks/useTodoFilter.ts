@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './../app/store';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from './useAppSelector';
 
 export const useTodoFilter = () => {
   const dispatch = useDispatch();
-  const { query } = useSelector((state: RootState) => state.filter);
+  const { query } = useAppSelector(state => state.filter);
 
   return {
     dispatch,
